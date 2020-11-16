@@ -53,6 +53,7 @@ export default {
       }
     }
   },
+
   methods: {
     login () {
       this.$refs.loginFormRef.validate(async valid => {
@@ -61,9 +62,9 @@ export default {
         if (res.meta.status !== 200) return this.$message.error(res.meta.msg)
         window.sessionStorage.setItem('token', res.data.token)
         this.$router.push('/home')
+        this.$message.success('登录成功')
       })
     },
-
     resetLoginForm () {
       this.$refs.loginFormRef.resetFields()
     }
